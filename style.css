@@ -9,10 +9,19 @@
     -webkit-filter:brightness(55%);
 }
 
-a.active{
+a.active, footer>nav>ul>li>a{
     color:white !important;
 }
 
 nav>ul>li>a{
     color:gray !important;
+}
+
+.btn-success{
+    background-color: rgb(150,201,62) !important;
+    border-color:  rgb(150,201,62) !important;
+}
+
+footer {
+    background-color: rgb(29,67,88);
 }
