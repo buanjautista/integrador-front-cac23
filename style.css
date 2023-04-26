@@ -25,3 +25,7 @@ nav>ul>li>a{
 footer {
     background-color: rgb(29,67,88);
 }
+
+.fecha__box--border{
+    border-left: 1px solid white;
+}
