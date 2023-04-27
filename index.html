@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="sticky-top">
         <div class="container-fluid bg-black bg-opacity-75 text-white pt-2 pb-3">
             <div class="container d-flex justify-content-between align-items-center">
                 <div class="ms-1">
@@ -27,14 +27,14 @@
                         <li class="nav-item"><a href="#oradores" class="nav-link">Los oradores</a></li>
                         <li class="nav-item"><a href="#fecha" class="nav-link">El lugar y la fecha</a></li>
                         <li class="nav-item"><a href="#formulario" class="nav-link">Conviertete en orador</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-success">Comprar tickets</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-success">Comprar tickets</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     <main>
-        <div class="position-relative mb-5">
+        <section class="position-relative mb-3" id="conferencia">
             <img src="./images/ba1.jpg" alt="Banner del sitio"
                 class="img-fluid w-100 banner__img--size banner__img--shadow">
             <div class="position-absolute top-0 h-100 d-flex justify-content-end align-items-center mx-5">
@@ -50,10 +50,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <section id="oradores">
-            <div class="container mb-5">
+            <div class="container mb-4">
                 <div class="text-center mb-4">
                     <h6 class="text-uppercase">Conoce a los</h6>
                     <h2 class="text-uppercase fw-semibold">Oradores</h1>
@@ -112,7 +112,7 @@
 
 
         <section id="fecha">
-            <div class="row g-0 mb-3">
+            <div class="row g-0 mb-4">
                 <div class="col">
                     <img src="./images/honolulu.jpg" alt="" class="img-fluid">
                 </div>
