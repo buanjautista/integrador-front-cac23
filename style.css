@@ -30,3 +30,16 @@ footer {
     background-color: rgb(150,201,62) !important;
     border-color:  rgb(150,201,62) !important;
 }
+
+@media (min-width: 990px) {
+    .sticky-lg-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+    }
+
+    .form__box--size{
+        width:50%
+    }
+}

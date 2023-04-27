@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <header class="sticky-top">
+    <header class="sticky-lg-top">
         <div class="container-fluid bg-black bg-opacity-75 text-white pt-2 pb-3">
-            <div class="container d-flex justify-content-between align-items-center">
+            <div class="container d-lg-flex justify-content-lg-between align-items-center">
                 <div class="ms-1">
                     <a href="#" class="navbar-brand"><img src="./images/codoacodo.png" alt="Logo de codo a codo" width="100"
                             class="d-inline-block align-text-center">
@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <nav>
-                    <ul class="nav">
+                    <ul class="nav navbar-expand-lg">
                         <li class="nav-item"><a href="#conferencia" class="nav-link active">La conferencia</a></li>
                         <li class="nav-item"><a href="#oradores" class="nav-link">Los oradores</a></li>
                         <li class="nav-item"><a href="#fecha" class="nav-link">El lugar y la fecha</a></li>
@@ -33,18 +33,20 @@
             </div>
         </div>
     </header>
+
     <main>
         <section class="position-relative mb-3" id="conferencia">
             <img src="./images/ba1.jpg" alt="Banner del sitio"
                 class="img-fluid w-100 banner__img--size banner__img--shadow">
-            <div class="position-absolute top-0 h-100 d-flex justify-content-end align-items-center mx-5">
-                <div class="banner-text text-white mx-5 text-end col-5">
+
+            <div class="position-absolute top-0 h-100 d-flex justify-content-center justify-content-lg-end align-items-center mx-lg-5">
+                <div class="banner-text text-white mx-5 text-center text-md-end col-12 col-md-5">
                     <h1 class="fw-semibold">Conf Bs As</h1>
                     <h5 class="mb-4 fs-5">Bs As llega por primera vez a Argentina. Un evento para compartir con nuestra
                         comunidad el conocimiento y experiencia de los expertos están creando el futuro de Internet. Ven
                         a conocer a miembros del evento, a otros estudiantes de Codo a Codo y los oradores de primer
                         nivel que tenemos para ti. Te esperamos!</h5>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-center justify-content-md-end flex-wrap">
                         <a href="#formulario"><button class="btn btn-outline-light mx-3">Quiero ser orador</button></a>
                         <button class="btn btn-success">Comprar tickets</button>
                     </div>
@@ -59,7 +61,7 @@
                     <h2 class="text-uppercase fw-semibold">Oradores</h1>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <div class="card">
                             <img src="./images/steve.jpg" alt="Steve Jobs" class="card-img-top">
                             <div class="card-body m-2">
@@ -75,7 +77,7 @@
                         </div>
 
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <div class="card">
                             <img src="./images/bill.jpg" alt="Bill Gates" class="card-img-top">
                             <div class="card-body m-2">
@@ -90,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md">
                         <div class="card">
                             <img src="./images/ada.jpeg" alt="Ada Lovelace" class="card-img-top">
                             <div class="card-body m-2">
@@ -113,10 +115,10 @@
 
         <section id="fecha">
             <div class="row g-0 mb-4">
-                <div class="col">
+                <div class="col-12 col-lg">
                     <img src="./images/honolulu.jpg" alt="" class="img-fluid">
                 </div>
-                <div class="col bg-dark text-white fecha__box--border p-4">
+                <div class="col-12 col-lg bg-dark text-white fecha__box--border p-4">
                     <h2 class="fw-semibold">Bs As - Octubre</h2>
                     <p class="">Buenos Aires es la provincia y localidad más grande del estado de Argentina, en los
                         Estados Unidos. Honolulu es la más sureña de entre las principales ciudades estadounidenses.
@@ -129,15 +131,15 @@
         </section>
 
         <section id="formulario">
-            <div class="container w-50 mb-3 text-center">
+            <div class="container-fluid container-lg form__box--size mb-3 text-center">
                 <h6 class="text-uppercase mb-1">Conviértete en un</h6>
                 <h2 class="text-uppercase h1 fw-semibold">Orador</h2>
                 <p class="h5">Anótate como orador para dar una charla ignite. Cuéntanos de qué quieres hablar!</p>
                 <form action="#" method="GET">
                     <div class="row mb-4">
-                        <div class="col"><input type="text" class="form-control form-control" placeholder="Nombre">
+                        <div class="col-12 mb-2 mb-lg-0 col-lg"><input type="text" class="form-control form-control" placeholder="Nombre">
                         </div>
-                        <div class="col"><input type="text" class="form-control form-control" placeholder="Apellido">
+                        <div class="col-12 col-lg"><input type="text" class="form-control form-control" placeholder="Apellido">
                         </div>
                     </div>
                     <div class="mb-2">
@@ -154,12 +156,12 @@
 
     <footer>
         <nav class="text-white py-3 container text-center">
-            <ul class="nav d-flex justify-content-around row align-items-center mx-3">
+            <ul class="nav d-flex justify-content-lg-around row align-items-center mx-3">
                 <li class="nav-item col"><a class="nav-link" href="#">Preguntas frecuentes</a></li>
                 <li class="nav-item col"><a class="nav-link" href="#">Contactanos</a></li>
                 <li class="nav-item col"><a class="nav-link" href="#">Prensa</a></li>
                 <li class="nav-item col"><a class="nav-link" href="#">Conferencias</a></li>
-                <li class="nav-item col-2"><a class="nav-link" href="#">Términos y condiciones</a></li>
+                <li class="nav-item col-lg-2"><a class="nav-link" href="#">Términos y condiciones</a></li>
                 <li class="nav-item col"><a class="nav-link" href="#">Privacidad</a></li>
                 <li class="nav-item col"><a class="nav-link" href="#">Estudiantes</a></li>
             </ul>
