@@ -18,7 +18,6 @@
 a.active, footer>nav>ul>li>a{
     color:white !important;
 }
-
 nav>ul>li>a{
     color:gray !important;
 }
@@ -37,6 +36,16 @@ footer {
 #formulario button.btn-success {
     background-color: rgb(150,201,62) !important;
     border-color:  rgb(150,201,62) !important;
+}
+
+#formulario button.btn-success:hover {
+    background-color: rgb(85, 121, 24) !important;
+    border-color:  rgb(85, 121, 24)  !important;
+}
+
+.card__img--size{
+    height:22rem;
+    object-fit: cover;
 }
 
 @media (min-width: 990px) {
