@@ -1,3 +1,9 @@
+@media screen and (max-width:760px){
+    .nav-grid{
+        display:grid;
+    }
+}
+
 
 .banner__img--size{
     height: 75vh;
@@ -16,7 +22,9 @@ a.active, footer>nav>ul>li>a{
 nav>ul>li>a{
     color:gray !important;
 }
-
+nav>ul>li>a:hover{
+    color:aquamarine !important;
+}
 
 footer {
     background-color: rgb(29,67,88);
