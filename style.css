@@ -33,14 +33,16 @@ footer {
     border-left: 1px solid white;
 }
 
-#formulario button.btn-success {
+.form__button--success {
     background-color: rgb(150,201,62) !important;
     border-color:  rgb(150,201,62) !important;
+    color:white;
 }
 
-#formulario button.btn-success:hover {
+.form__button--success:hover {
     background-color: rgb(85, 121, 24) !important;
     border-color:  rgb(85, 121, 24)  !important;
+    color:white;
 }
 
 .card__img--size{
