@@ -62,3 +62,12 @@ footer {
         width:50%
     }
 }
+
+
+.ticket-modal{
+    width: 45vw;
+    height: 45vh;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+}

@@ -155,35 +155,35 @@
     </main>
     <div id="tickets-box" class="tickets-box">
         <div class="container mt-4">
-            <div class="row text-center justify-content-center">
-                <div class="col-2 border mx-2">
-                    <p>Estudiante</p>
+            <div class="row text-center justify-content-center mb-3">
+                <div class="col-12 col-lg-3 border border-primary mx-2 py-3">
+                    <h5>Estudiante</h5>
                     <p>Tienen un descuento</p>
-                    <p>80%</p>
-                    <p>*presentar documentacion</p>
+                    <p class="fw-semibold">80%</p>
+                    <p class="fs-6 text-muted">*presentar documentacion</p>
                 </div>
-                <div class="col-2 border mx-2">
-                    <p>Trainee</p>
+                <div class="col-12 col-lg-3 border border-info mx-2 py-3">
+                    <h5>Trainee</h5>
                     <p>Tienen un descuento</p>
-                    <p>50%</p>
-                    <p>*presentar documentacion</p>
+                    <p class="fw-semibold">50%</p>
+                    <p class="fs-6 text-muted">*presentar documentacion</p>
                 </div>
-                <div class="col-2 border mx-2">
-                    <p>Junior</p>
+                <div class="col-12 col-lg-3 border border-warning mx-2 py-3">
+                    <h5>Junior</h5>
                     <p>Tienen un descuento</p>
-                    <p>15%</p>
-                    <p>*presentar documentacion</p>
+                    <p class="fw-semibold">15%</p>
+                    <p class="fs-6 text-muted">*presentar documentacion</p>
                 </div>
             </div>
             <h6 class="text-center text-uppercase mb-1">Venta</h6>
             <h2 class="text-center text-uppercase h1 fw-semibold">Valor de ticket $200</h2>
-            <div class="form">
-                <form action="GET">
+            <div class="mb-3">
+                <form action="#" method="post" id="tickets-form">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-12 col-lg">
                             <input type="text" name="nombre" id="nombre-tix" class="form-control" placeholder="Nombre">
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-lg">
                             <input type="text" name="apellido" id="apellido-tix" class="form-control" placeholder="Apellido">
                         </div>
                     </div>
@@ -192,11 +192,11 @@
                     </div>
     
                     <div class="row mt-3">
-                        <div class="col">
+                        <div class="col-12 col-lg">
                             <label for="cantidad" class="form-label">Cantidad</label>
-                            <input type="text" name="cantidad" id="cantidad-tix" class="form-control" placeholder="Cantidad">
+                            <input type="text" name="cantidad" id="cantidad-tix" class="form-control" maxlength="2" placeholder="Cantidad">
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-lg">
                             <label for="categoria" class="form-label">Categoria</label>
                             <select id="categoria-tix" name="categoria" class="form-select">
                                 <option value="0">Estudiante</option>
@@ -205,17 +205,33 @@
                             </select>
                         </div>
                     </div>
-                    <div class="resumen">
+                    <div class="resumen w-100 p-3 bg-primary my-3 rounded">
                         <span>Total a Pagar: $</span>
                         <span id="precio-total-tix"></span>
                     </div>
                     <div class="row">
-                        <div class="col"><button class="btn form__button--success btn-lg w-100 h2">Borrar</button></div>
-                        <div class="col"><button class="btn form__button--success btn-lg w-100 h2">Resumen</button></div>
+                        <div class="col"><button type="button" class="btn form__button--success btn-lg w-100 h2" id="borrar-tix">Borrar</button></div>
+                        <div class="col"><button type="button" class="btn form__button--success btn-lg w-100 h2" id="resumen-tix">Resumen</button></div>
                     </div>
                 </form>
             </div>
         </div>
+
+        <dialog class="ticket-modal" id="ticket-modal" class="d-flex align-content-center">
+            <div class="resumen w-100 p-3 bg-secondary my-3 rounded">
+                <span>Cantidad de tickets: </span>
+                <span id="cantidad-tix-confirmacion"></span>
+            </div>
+            <div class="resumen w-100 p-3 bg-primary my-3 rounded">
+                <span>Total a Pagar: $</span>
+                <span id="precio-confirmacion"></span>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button id="close-tix-modal" type="button" class="btn btn-lg btn-danger me-3">Cerrar</button>
+                <button type="button" class="btn btn-lg btn-success">Confirmar</button>
+            </div>
+        </dialog>
     </div>
 
 
@@ -237,6 +253,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <script src="./main.js"></script>
+    <script src="./tickets.js"></script>
 </body>
 
 </html>
