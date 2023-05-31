@@ -8,6 +8,9 @@ const ticketsForm = document.querySelector('#tickets-form')
 const precioTicket = 200
 
 const descuentos = [{
+    clase: "Sin descuento",
+    descuento: "0"
+}, {
         clase: "Estudiante",
         descuento: "80"
     },
@@ -18,7 +21,8 @@ const descuentos = [{
     {
         clase: "Junior",
         descuento: "15"
-    }]
+    }
+    ]
 
 
 const addCategorias = () => {
@@ -33,7 +37,10 @@ addCategorias()
 const checkPrecio = () => {
     let precioTotal = 0
     cantidad = cantidadBox.value
+    if (cantidad < 1) { cantidad = 0 }
+
     descuentoActual = ((100 - descuentos[categoriaBox.value].descuento) * 0.01)
+
     if (cantidad) {
              precioTotal = ((cantidad * precioTicket) * descuentoActual) 
              precioBox.innerText = precioTotal
@@ -47,11 +54,13 @@ const checkPrecio = () => {
 // Eventos de cada 
 
 categoriaBox.addEventListener('change',checkPrecio)
-cantidadBox.addEventListener('input',checkPrecio)
+cantidadBox.addEventListener('input', checkPrecio)
 
 
 const resetForm = () => {
     ticketsForm.reset()
+    cantidadBox.value = 0
+    precioBox.innerText = 0
 }
 const borrarBoton = document.querySelector('#borrar-tix')
 const resumenBoton = document.querySelector('#resumen-tix')
@@ -60,9 +69,12 @@ const precioBoxConfirm = document.querySelector('#precio-confirmacion')
 const cantidadBoxConfirm = document.querySelector('#cantidad-tix-confirmacion')
 const modalTickets = document.querySelector('#ticket-modal')
 
+
+// Ventana de resumen 
+
 const resumenModal = () => {
     modalTickets.showModal()
-    cantidadBoxConfirm.innerText = cantidadBox.innerText
+    cantidadBoxConfirm.innerText = cantidadBox.value
     precioBoxConfirm.innerText = checkPrecio()
 }
 const closeResumen = () => {
