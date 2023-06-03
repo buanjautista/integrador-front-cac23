@@ -15,27 +15,22 @@ const addActiveNav = (navElement) => {
 }
 
 // Cambia de active al scrollear la pagina
-// window.onscroll = () => {
-//     let currentSection = ""
+window.onscroll = () => {
+    let currentSection = ""
 
-//     sections.forEach(section => {
-//         const sectionHeight = section.scrollHeight
-//         const sectionTop = section.offsetTop
-//         if (pageYOffset >= sectionTop) {
-//             currentSection = section.getAttribute('id')
-//             console.log(currentSection)
-//         }
-//     })
-// }
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - (section.offsetHeight/2)
 
-const inputList = document.querySelectorAll('input')
-const checkInputCompletion = (input) => {
-    input.value ? input.classList.remove('incomplete-form') : input.classList.add('incomplete-form')
+        if (pageYOffset >= sectionTop) {
+            currentSection = section.getAttribute('id') + '-nav'
+        }
+    })
+    currentSection = document.getElementsByClassName(currentSection)[0] 
+    
+    // Busca el elemento con una clase que coincida con el id del section
+    addActiveNav(currentSection)
 }
-inputList.forEach(input => {
-    input.addEventListener('change', () => checkInputCompletion(input))
-    input.addEventListener('focusout', () => checkInputCompletion(input))
-})
+
 
 
     // // Cambiar de pagina a Compra de Tickets y volver a main
