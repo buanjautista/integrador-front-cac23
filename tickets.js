@@ -74,14 +74,18 @@ const modalTickets = document.querySelector('#ticket-modal')
 
 const resumenModal = () => {
     // check basico de datos de form
-    if (!document.querySelector('.incomplete-form')){
-        modalTickets.showModal()
-        cantidadBoxConfirm.innerText = cantidadBox.value
-        precioBoxConfirm.innerText = checkPrecio()
+    let inputList = document.querySelectorAll('input')
+    for (i = 0; i < inputList.length; i++){
+        if (!inputList[i].value) { 
+            alert('Por favor completar los datos requeridos')
+            checkInputCompletion(inputList[i])
+            return false
+        }
+        console.log(inputList[i].value)
     }
-    else {
-        alert('Por favor completar los datos requeridos')
-    }
+    modalTickets.showModal()
+    cantidadBoxConfirm.innerText = cantidadBox.value
+    precioBoxConfirm.innerText = checkPrecio()
 }
 const closeResumen = () => {
     modalTickets.close()
