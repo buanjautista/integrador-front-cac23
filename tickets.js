@@ -33,7 +33,10 @@ const addCategorias = () => {
     }
 }
 addCategorias()
-    
+
+
+// Aplica el descuento dependiendo la categoria
+
 const checkPrecio = () => {
     let precioTotal = 0
     cantidad = cantidadBox.value
@@ -51,7 +54,7 @@ const checkPrecio = () => {
     return precioTotal
 }
 
-// Eventos de cada 
+// Eventos de cambio categoria 
 
 categoriaBox.addEventListener('change',checkPrecio)
 cantidadBox.addEventListener('input', checkPrecio)
@@ -77,11 +80,10 @@ const resumenModal = () => {
     let inputList = document.querySelectorAll('input')
     for (i = 0; i < inputList.length; i++){
         if (!inputList[i].value) { 
-            alert('Por favor completar los datos requeridos')
+            alert('Por favor completar los campos requeridos')
             checkInputCompletion(inputList[i])
             return false
         }
-        console.log(inputList[i].value)
     }
     modalTickets.showModal()
     cantidadBoxConfirm.innerText = cantidadBox.value
@@ -103,7 +105,7 @@ const descuentoBox1 = document.getElementById('descuento1')
 const descuentoBox2 = document.getElementById('descuento2')
 const descuentoBox3 = document.getElementById('descuento3')
 
-const descuentoColor = ['bg-primary', 'bg-info', 'bg-warning']
+const descuentoColor = ['bg-primary-sutil', 'bg-info-sutil', 'bg-warning-sutil']
 const addEventos = (elemento, indexColor) => {
     elemento.addEventListener('mouseover',() => setBackgroundEffect(elemento,1,descuentoColor[indexColor]))
     elemento.addEventListener('mouseout',() => setBackgroundEffect(elemento,0,descuentoColor[indexColor]))
@@ -127,14 +129,14 @@ const setBackgroundEffect = (element,state,background) => {
         case 0:
             element.classList.remove(background)
             for (const child of element.children) {
-                child.classList.remove(background)
+                // child.classList.remove(background)
                 child.classList.remove('text-white')
             }
             break;
         case 1:
             element.classList.add(background)
             for (const child of element.children) {
-                child.classList.add(background)
+                // child.classList.add(background)
                 child.classList.add('text-white')
             }
             break;
