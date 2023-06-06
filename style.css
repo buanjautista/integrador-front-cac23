@@ -78,8 +78,8 @@ footer {
 }
 
 .incomplete-form{
-    border: 2px solid rgba(255, 0, 0, 0.7);
-    box-shadow: 0px 0px 10px 1px #FF0000;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px 1px rgba(255, 0, 0, 0.5);
 }
 
 .cursor-pointer{
@@ -101,4 +101,19 @@ footer {
     -moz-transition:all 0.5s;
     -ms-transition:all 0.5s;
     -o-transition:all 0.5s;
+}
+
+@keyframes update-form {
+    25%, 75% {
+      border-color: rgb(255, 166, 0);
+    }
+    50% {
+        border-color: #dee2e6;
+    }
+}
+  
+.update-form-fx{
+    -webkit-animation-name: update-form;
+    animation-name: update-form;
+    animation-duration: 0.75s;
 }

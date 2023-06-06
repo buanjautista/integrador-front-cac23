@@ -1,81 +1,107 @@
-const nombreBox = document.querySelector('#nombre-tix')
-const apellidoBox = document.querySelector('#apellido-tix')
-const correoBox = document.querySelector('#correo-tix')
-const cantidadBox = document.querySelector('#cantidad-tix')
-const categoriaBox = document.querySelector('#categoria-tix')
-const precioBox = document.querySelector('#precio-total-tix')
+const nameBox = document.querySelector('#nombre-tix')
+const lastNameBox = document.querySelector('#apellido-tix')
+const mailBox = document.querySelector('#correo-tix')
+const quantityTixBox = document.querySelector('#cantidad-tix')
+const categoryBox = document.querySelector('#categoria-tix')
+const priceBox = document.querySelector('#precio-total-tix')
 const ticketsForm = document.querySelector('#tickets-form')
-const precioTicket = 200
+const ticketPrice = 200
 
-const descuentos = [{
-    clase: "Sin descuento",
-    descuento: "0"
-}, {
-        clase: "Estudiante",
-        descuento: "80"
+const discounts = [{
+        class: "Sin descuento",
+        discount: "0"
+    }, {
+        class: "Estudiante",
+        discount: "80"
     },
     { 
-        clase: "Trainee",
-        descuento:"50"
+        class: "Trainee",
+        discount:"50"
     }, 
     {
-        clase: "Junior",
-        descuento: "15"
+        class: "Junior",
+        discount: "15"
     }
     ]
 
 
-const addCategorias = () => {
-    let cantidadCategorias = descuentos.length
-    categoriaBox.innerHTML = ""
-    for (let i = 0; i < cantidadCategorias; i++){
-        categoriaBox.innerHTML += '<option value="' + i + '">' + descuentos[i].clase + '</option>'
+const addCategory = () => {
+    let totalCategory = discounts.length
+    categoryBox.innerHTML = ""
+    for (let i = 0; i < totalCategory; i++){
+        categoryBox.innerHTML += '<option value="' + i + '">' + discounts[i].class + '</option>'
     }
 }
-addCategorias()
+addCategory()
 
 
 // Aplica el descuento dependiendo la categoria
 
-const checkPrecio = () => {
-    let precioTotal = 0
-    cantidad = cantidadBox.value
-    if (cantidad < 1) { cantidad = 0 }
+const checkPrice = () => {
+    let totalPrice = 0
+    quantity = quantityTixBox.value
+    if (quantity < 2) { quantity = 1 }
 
-    descuentoActual = ((100 - descuentos[categoriaBox.value].descuento) * 0.01)
+    currentDiscount = ((100 - discounts[categoryBox.value].discount) * 0.01)
 
-    if (cantidad) {
-             precioTotal = ((cantidad * precioTicket) * descuentoActual) 
-             precioBox.innerText = precioTotal
+    if (quantity) {
+             totalPrice = ((quantity * ticketPrice) * currentDiscount) 
+             priceBox.innerText = totalPrice
     }
     else {
-        precioBox.innerText = 0
+        priceBox.innerText = 0
     }
-    return precioTotal
+    return totalPrice
 }
 
 // Eventos de cambio categoria 
 
-categoriaBox.addEventListener('change',checkPrecio)
-cantidadBox.addEventListener('input', checkPrecio)
+categoryBox.addEventListener('change',checkPrice)
+quantityTixBox.addEventListener('input', checkPrice)
 
 
 const resetForm = () => {
     ticketsForm.reset()
-    cantidadBox.value = 0
-    precioBox.innerText = 0
+    quantityTixBox.value = 1
+    // priceBox.innerText = 0
+    checkPrice()
+    
+    updateFormAnimations()
 }
-const botonBorrar = document.querySelector('#borrar-tix')
-const botonResumen = document.querySelector('#resumen-tix')
+
+const updateFormAnimations = () => {
+    var animation = 'update-form-fx'
+    quantityTixBox.classList.add(animation);
+    nameBox.classList.add(animation);
+    lastNameBox.classList.add(animation);
+    mailBox.classList.add(animation);
+    categoryBox.classList.add(animation);
+
+    mailBox.addEventListener('animationend', () => {
+        quantityTixBox.classList.remove(animation);
+        nameBox.classList.remove(animation);
+        lastNameBox.classList.remove(animation);
+        mailBox.classList.remove(animation);
+        categoryBox.classList.remove(animation);
+    });
+}
+
+window.onload = () => {
+    resetForm()
+}
+
+const clearButton = document.querySelector('#borrar-tix')
+const summaryButton = document.querySelector('#resumen-tix')
 const closeTicketModal = document.querySelector('#close-tix-modal')
-const precioBoxConfirm = document.querySelector('#precio-confirmacion')
-const cantidadBoxConfirm = document.querySelector('#cantidad-tix-confirmacion')
+
+const priceBoxConfirm = document.querySelector('#precio-confirmacion')
+const quantityBoxConfirm = document.querySelector('#cantidad-tix-confirmacion')
 const modalTickets = document.querySelector('#ticket-modal')
 
 
 // Ventana de resumen 
 
-const resumenModal = () => {
+const summaryModal = () => {
     // check basico de datos de form
     let inputList = document.querySelectorAll('input')
     for (i = 0; i < inputList.length; i++){
@@ -85,42 +111,54 @@ const resumenModal = () => {
             return false
         }
     }
+    if (quantityTixBox.value == 0) { 
+        alert('Por favor añadir cantidad de tickets')
+        return false 
+    }
     modalTickets.showModal()
-    cantidadBoxConfirm.innerText = cantidadBox.value
-    precioBoxConfirm.innerText = checkPrecio()
+    quantityBoxConfirm.innerText = quantityTixBox.value
+    priceBoxConfirm.innerText = checkPrice()
 }
 const closeResumen = () => {
     modalTickets.close()
 }
 
 closeTicketModal.addEventListener('click', closeResumen)
-botonBorrar.addEventListener('click', resetForm)
-botonResumen.addEventListener('click', resumenModal)
+clearButton.addEventListener('click', resetForm)
+summaryButton.addEventListener('click', summaryModal)
 
+const placeOrder = () => {
+    alert('Gracias por tu compra!')
+
+    closeResumen()
+}
+const orderConfirmButton = document.querySelector('#order-confirm-btn')
+orderConfirmButton.addEventListener('click', placeOrder)
 
 
 // Cajas de descuento
 
-const descuentoBox1 = document.getElementById('descuento1')
-const descuentoBox2 = document.getElementById('descuento2')
-const descuentoBox3 = document.getElementById('descuento3')
+const discountBox1 = document.getElementById('descuento1')
+const discountBox2 = document.getElementById('descuento2')
+const discountBox3 = document.getElementById('descuento3')
 
-const descuentoColor = ['bg-primary-sutil', 'bg-info-sutil', 'bg-warning-sutil']
-const addEventos = (elemento, indexColor) => {
-    elemento.addEventListener('mouseover',() => setBackgroundEffect(elemento,1,descuentoColor[indexColor]))
-    elemento.addEventListener('mouseout',() => setBackgroundEffect(elemento,0,descuentoColor[indexColor]))
-    elemento.addEventListener('click', () => changeCategory(elemento))
+const discountBoxColor = ['bg-primary-sutil', 'bg-info-sutil', 'bg-warning-sutil']
+const discountBoxEvents = (element, indexColor) => {
+    element.addEventListener('mouseover',() => setBackgroundEffect(element,1,discountBoxColor[indexColor]))
+    element.addEventListener('mouseout',() => setBackgroundEffect(element,0,discountBoxColor[indexColor]))
+    element.addEventListener('click', () => changeCategory(element))
 }
-addEventos(descuentoBox1,0)
-addEventos(descuentoBox2,1)
-addEventos(descuentoBox3,2)
+discountBoxEvents(discountBox1,0)
+discountBoxEvents(discountBox2,1)
+discountBoxEvents(discountBox3,2)
 
 
 const changeCategory = (element) => { 
     // Cambia el valor-descuento de la categoria al apretar sobre las cajas informativas
-    let categoria = element.children[0].textContent
-    const valorCategoria = descuentos.findIndex(index => index.clase == categoria)
-    categoriaBox.value = valorCategoria
+    let category = element.children[0].textContent
+    const valorCategory = discounts.findIndex(index => index.class == category)
+    categoryBox.value = valorCategory
+    checkPrice()
 }
 
 const setBackgroundEffect = (element,state,background) => {
