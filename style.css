@@ -1,3 +1,7 @@
+body {
+    min-height:100vh;
+}
+
 @media screen and (max-width:760px){
     .nav-grid{
         display:grid;
@@ -55,6 +59,13 @@ footer {
         position: -webkit-sticky;
         position: sticky;
         top: 0;
+        z-index: 1020;
+    }
+
+    .sticky-lg-bottom {
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 0;
         z-index: 1020;
     }
 
@@ -116,4 +127,12 @@ footer {
     -webkit-animation-name: update-form;
     animation-name: update-form;
     animation-duration: 0.75s;
+}
+
+
+.ticket__page--size{
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
